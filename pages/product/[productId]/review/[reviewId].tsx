@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useRouter } from 'next/router';
 
 
-const ReviewDetailPage = () => {
+const ReviewDetailPage: FC = () => {
     const router = useRouter();
     const { query: { productId, reviewId } } = router;
     return <div>

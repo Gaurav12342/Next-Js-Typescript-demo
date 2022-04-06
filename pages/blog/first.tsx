@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useRouter } from 'next/router';
 
-const First = () => {
+const First: FC = () => {
     const router = useRouter();
     return <div>
         <button onClick={() => router.push('/blog')}>Back button</button>

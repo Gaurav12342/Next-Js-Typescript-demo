@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import CardContent from '@mui/material/CardContent';
@@ -6,12 +6,12 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image'
 
 
-const ProductDetailPage = (props) => {
-    const router = useRouter();
+const ProductDetailPage: FC<any> = (props) => {
+    const router: any = useRouter();
     const { query: { productId } } = router;
-    const { getUserDetail } = props;
+    const { getUserDetail }: any = props;
 
-    const myLoader = ({ src, width, quality }) => {
+    const myLoader = ({ src, width, quality }: any) => {
         return `${src}?w=${width}&q=${quality || 25}`
     }
     return <div>
@@ -47,7 +47,7 @@ export default ProductDetailPage;
 
 export const getStaticPaths = async () => {
     const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-    const getProduct = response?.data?.map((data) => {
+    const getProduct = response?.data?.map((data: any) => {
         return {
             params: {
                 productId: data?.id.toString()
@@ -60,7 +60,7 @@ export const getStaticPaths = async () => {
     }
 }
 
-export const getStaticProps = async (props) => {
+export const getStaticProps = async (props: any) => {
     const { params } = props;
     const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${params?.productId}`);
 

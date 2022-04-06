@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-const Product = (props) => {
-    const { getUsers } = props;
+const Product: FC<any> = (props) => {
+    const { getUsers }: any = props;
     return <div>
         <Link href='/'>Back</Link>
         <h2>Main Product</h2>
         <Card sx={{ width: 1000, marginLeft: 15 }}>
-            {getUsers?.map((user, index) => {
+            {getUsers?.map((user: any, index: any): any => {
                 return (
                     <>
                         <CardContent key={index}>
